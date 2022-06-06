@@ -1,0 +1,40 @@
+<div class="container p-4">
+    <div class="row">
+        {{#each Clinicos}}
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+            
+                        <h3 class="card-title text-uppercase text-primary">
+                            {{title}}
+                        </h3>
+                
+                    <p class="m-2">{{description}}</p>
+                    <div class="input-group  mb-3">
+                    <i class="fa-solid fa-eye btn m-3" href="/uploads/{{image}}"></i>
+                    <a class="btn primary m-2" href="/uploads/{{image}}">
+                        Ver imagen
+                    </a>
+                     </div>
+                    <p class="text-muted">
+                        {{timeago created_at}}
+                    </p>
+                    <a class="btn btn-danger" href="/clinicos/delete/{{id}}">
+                            Borrar archivo
+                    </a>
+                    <a class="btn btn-secondary" href="/clinicos/edit/{{id}}">
+                        Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>No hay archivos en la nube.</p>
+                <a href="/clinicos/add">Agrega uno!</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
